@@ -2,7 +2,7 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import { useDispatch } from "react-redux";
 import * as Yup from "yup";
 import { useId } from "react-id-generator";
-import { addContact } from "../../redux/contactsSlice";
+import { addContact } from "../../redux/contactsOps";
 import css from "./ContactForm.module.css";
 
 const validationSchema = Yup.object({
@@ -22,7 +22,7 @@ const ContactForm = () => {
   const telFieldId = useId();
 
   const handleSubmit = (values, { resetForm }) => {
-    dispatch(addContact(values.name, values.number));
+    dispatch(addContact(values));
     resetForm();
   };
 
